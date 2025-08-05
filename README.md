@@ -4,15 +4,15 @@ An attempted listing of all PIDs for BYD cars
 
 ## Known, working PIDs and their expressions
 
-|Model|Year(s)|Name|Description|PID #|Class|Unit|Min|Max|Expression|Init|
-|-|-|-|-|-|-|-|-|-|-|-|
-|Atto 3|2025|SoC|State of Charge|221FFC1|Battery|%|0|100|((B5*256)+B4)/100||
-|Atto 3|2025|BATT_TEMP|Battery Temperature|220032|Temperature|°C|-40|80|B4-40||
-|Dolphin|2023–2025|SoC|State of Charge|221FFC|Battery|%|-5|105|(A + B*256)/100|Yes|
-|Dolphin|2023–2025|VOLTAGE|Battery Voltage|220008|Voltage|V|200|1000|A + B*256|Yes|
-|Dolphin|2023–2025|CURRENT|Battery Current|220009|Current|A|-600|1000|((A + B*256) - 5000) / 10|Yes|
-|Dolphin|2023–2025|BATT_TEMP|Battery Temperature|220032|Temperature|°C|-40|80|A - 40|Yes|
-
+|Model|Year(s)|Name|Description|PID #|Class|Unit|Min|Max|Expression|Init|Remarks
+|-|-|-|-|-|-|-|-|-|-|-|-|
+|Atto 3|2025|SoC|State of Charge|221FFC1|Battery|%|0|100|((B5*256)+B4)/100|||
+|Atto 3|2025|BATT_TEMP|Battery Temperature|220032|Temperature|°C|-40|80|B4-40|||
+|Dolphin|2023–2025|SoC|State of Charge|221FFC1|Battery|%|-5|105|(B4 + B5*256)/100|Yes|confirmed working|
+|Dolphin|2023–2025|VOLTAGE|Battery Voltage|220008|Voltage|V|200|1000|B4 + B5*256 ? need to confirm|Yes|needs confirmation|
+|Dolphin|2023–2025|CURRENT|Battery Current|220009|Current|A|-600|1000|((A + B*256) - 5000) / 10 |Yes|currently not getting the values to lign up with the car scanner app|
+|Dolphin|2023–2025|BATT_TEMP|Battery Temperature|220032|Temperature|°C|-40|80|B4 - 40|Yes|confirmed working|
+|Dolphin|2023–2025|CHARGE_TIMES|Charge Times|22000B1| - | - |0|?|(B4 + B5*256)0|?|confirmed working|
 
 <br><br>
 
@@ -28,6 +28,8 @@ An attempted listing of all PIDs for BYD cars
 
 <br><br>
 
+## Comments
+Everything i saw so far shows that Dolphin and Atto3 use the same codes. Possible also Seal
 
 ## Wanted PIDs
 - Charging state
