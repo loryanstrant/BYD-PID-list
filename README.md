@@ -41,6 +41,8 @@ An attempted listing of all PIDs for BYD cars
 
 ## Comments
 Everything i saw so far shows that Dolphin and Atto3 use the same codes. Possible also Seal
+[Table with Work in progress](https://docs.google.com/spreadsheets/d/17hWSms8gI4p-yw8w6tnLtT0eCKMj096mSmfEf9bdpZs/edit?usp=sharing)
+
 
 ## Wanted PIDs
 - Charging state
