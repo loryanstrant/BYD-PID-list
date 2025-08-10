@@ -6,16 +6,16 @@ An attempted listing of all PIDs for BYD cars
 
 |Model|Year(s)|Name|Description|PID #|Class|Unit|Min|Max|Expression|Init|Remarks
 |-|-|-|-|-|-|-|-|-|-|-|-|
-|Atto 3, Dolphin|2023-2025|SoC|State of Charge|221FFC1|Battery|%|0|100|((B5*256)+B4)/100||confirmed working|
+|Atto 3, Dolphin|2023-2025|SoC|State of Charge (i.e. battery level as a percentage)|221FFC1|Battery|%|0|100|((B5*256)+B4)/100||confirmed working|
 |Atto 3, Dolphin|2023-2025|BATT_TEMP|Battery Temperature|220032|Temperature|°C|-40|80|B4-40||confirmed working|
 |Dolphin|2023–2025|VOLTAGE|Battery Voltage|220008|Voltage|V|200|1000|B4 + B5*25 |Yes|needs confirmation|
 |Dolphin|2023–2025|CURRENT|Battery Current|220009|Current|A|-600|1000|((A + B*256) - 5000) / 10 |Yes|working|
-|Atto 3, Dolphin|2023–2025|CHARGE_TIMES|Charge Times|22000B1| - | - |0|?|(B4 + B5*256)|?|confirmed working|
+|Atto 3, Dolphin|2023–2025|CHARGE_TIMES|Charge Times (i.e. how many times the battery has been in a charging state)|22000B1| - | - |0|?|(B4 + B5*256)|?|confirmed working|
 |Dolphin|2023–2025|MAX_DISCHARGE_POWER| |22000E| - | - |||||to be investigated|
 |Dolphin|2023–2025|TOTAL_CHARGED_AH| |22000F| - | - |||||to be investigated|
 |Dolphin|2023–2025|TOTAL_DISCHARGED_AH| |220010| - | - |||||to be investigated|
-|Atto 3, Dolphin|2023–2025|TOTAL_CHARGED_KWH| |2200111| - | - |||B4+(B5*256)||confirmed working|
-|Atto 3, Dolphin|2023–2025|TOTAL_DISCHARGED_KWH| |2200121| - | - |||B4+(B5*256)||confirmed working|
+|Atto 3, Dolphin|2023–2025|TOTAL_CHARGED_KWH|Total Charged kwH (i.e. how many KW the car has received in its lifetime)|2200111| - | - |||B4+(B5*256)||confirmed working|
+|Atto 3, Dolphin|2023–2025|TOTAL_DISCHARGED_KWH|Total Discharged kwH (i.e. how many KW the car has used in its lifetime)|2200121| - | - |||B4+(B5*256)||confirmed working|
 |Dolphin|2023–2025|TIMES_FULL_POWER| |220004| - | - |||||to be investigated|
 |Dolphin|2023–2025|MODULE_1_LOWEST_MV_NUMBER| |22016C| - | - |||||there are at leat 10 Modules in Atto and possible 13 in Dolphin|
 |Dolphin|2023–2025|MODULE_1_LOWEST_CELL_MV| |22016D| - | - |||||to be investigated|
@@ -26,7 +26,10 @@ An attempted listing of all PIDs for BYD cars
 <br><br>
 
 ## Initialisation strings
-### BYD Dolphoin
+### Atto 3
+ATAT1;ATST96;ATSH7E7;ATFCSH7E7;ATFCSD300000;ATFCSM1;ATSH7E4
+
+### Dolphin
 "byd:dolphin:23:45": {
   "init": [
     "ATZ", "ATE0", "ATD", "ATD0", "ATE0", "ATH1", "ATSP6",
@@ -37,8 +40,8 @@ An attempted listing of all PIDs for BYD cars
 
 <br><br>
 
-## Comments
-Everything i saw so far shows that Dolphin and Atto3 use the same codes. Possible also Seal
+## Note
+Everything seen so far indicates that the Dolphin and Atto 3 use the same codes, potentially also the Seal.
 [Table with Work in progress](https://docs.google.com/spreadsheets/d/17hWSms8gI4p-yw8w6tnLtT0eCKMj096mSmfEf9bdpZs/edit?usp=sharing)
 
 
@@ -46,6 +49,7 @@ Everything i saw so far shows that Dolphin and Atto3 use the same codes. Possibl
 - Charging state
 - Cabin temperature
 - Odometer
+- Estimated distance (KM) remaining on current charge
 
 <br><br>
 
